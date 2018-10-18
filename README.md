@@ -210,8 +210,7 @@ This will set the authentication parameters required to make API requests into L
       <img src="/media/logicGroup.png">
     </kbd>
 
-More info on creating LogicMonitor Groups:
-https://www.logicmonitor.com/support/settings/alert-settings/recipient-groups/
+More info on creating [LogicMonitor Recipient Groups](https://www.logicmonitor.com/support/settings/alert-settings/recipient-groups/)
 
 
 
@@ -233,8 +232,7 @@ https://www.logicmonitor.com/support/settings/alert-settings/recipient-groups/
       <img src="/media/Escalationchain.png">
     </kbd>
 
-More info on creating LogicMonitor Escalation Chains:
-https://www.logicmonitor.com/support/settings/alert-settings/escalation-chains/
+More info on creating [LogicMonitor Escalation Chains](https://www.logicmonitor.com/support/settings/alert-settings/escalation-chains/)
 
 
 
@@ -262,8 +260,7 @@ The most important thing you must do here is to configure the __Escalation Chain
       <img src="/media/Alert-Rule.png">
     </kbd>
 
-More info on creating LogicMonitor Groups:
-https://www.logicmonitor.com/support/settings/alert-settings/alert-rules/
+More info on creating [LogicMonitor Alert Riles](https://www.logicmonitor.com/support/settings/alert-settings/alert-rules/)
 
 
 
