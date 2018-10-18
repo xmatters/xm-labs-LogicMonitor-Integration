@@ -183,6 +183,11 @@ This will set the authentication parameters required to make API requests into L
 19. Click __Save__ if the test is successful.
 
 
+   <kbd>
+      <img src="/media/LogicIntegration.png">
+    </kbd>
+
+
 
 
 
@@ -195,9 +200,9 @@ This will set the authentication parameters required to make API requests into L
 3. Click Add button.
 4. Name the group. Group names should match the group names in xMatters. This will be used to target xMatters groups.
 5. Add a new recipient.
-	The selected recipient does not matter but you may want to chose one with the purpose of this integration.
+	The selected recipient does not matter but you may want to choose one with the purpose of this integration.
 6. Set Contact Method to __xMatters Integration(http)__.
-	- This is the name of the xMatters integration here: [Configure LogicMonitor](#configure-logicmonitor)
+	- This is the name of the xMatters integration here: [Configure LogicMonitor](#configure-logicmonitor-integration)
 7. Save Recipient.
 8. Save Group.
 
@@ -266,21 +271,17 @@ https://www.logicmonitor.com/support/settings/alert-settings/alert-rules/
 
 
 <br><br>
-## Test the Integration.
+## Testing and Troubleshooting
 
-1. Call your Twilio number. 
+Go LogicMonitor Integration. Follow instructions here: [Configure LogicMonitor](#configure-logicmonitor-integration) 
+- Click __Test Alert Delivery__.
 
-2. Test your configuration and all of the call prompts making sure it works as expected.
+Trigger a new LogicMonitor Alert check that it makes its way into xMatters.
 
-
-
-
-
-
-<br><br>
-# Troubleshooting
-Alternatively, you can check the Inbound Integration Activity Log in xMatters:
+You can check the Inbound Integration Activity Log in xMatters:
 https://help.xmatters.com/ondemand/xmodwelcome/integrationbuilder/create-inbound-updates.htm
+
+
 
 
 
