@@ -9,8 +9,7 @@ This integration helps you initiate xMatters notifications for LogicMonitor aler
 # Pre-Requisites
 * LogicMonitor (https://www.logicmonitor.com)
 	* You must have a [collector installed](https://www.logicmonitor.com/support/settings/collectors/about-the-logicmonitor-collector/)
-	* You must have [devices added and configured]
-	(https://www.logicmonitor.com/support/getting-started/i-just-signed-up-for-logicmonitor-now-what/4-adding-devices/)
+	* You must have [devices added and configured](https://www.logicmonitor.com/support/getting-started/i-just-signed-up-for-logicmonitor-now-what/4-adding-devices/)
 	* You must add a Custom Property to the device defining the xMatters Group to taget.
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
 
@@ -76,7 +75,7 @@ The next step is to import the communication plan.
 To import the communication plan:
 
 1. In the target xMatters system, on the __Developer__ tab, click __Import Plan__.
-2. Click __Browse__, and then locate the downloaded communication plan: [xMatters Initiate Event via Phone Call Communication Plan](xMattersPlan/LogicMonitor.zip)
+2. Click __Browse__, and then locate the downloaded communication plan: [xMatters LogicMonitor Communication Plan](xMattersPlan/LogicMonitor.zip)
 3. Click __Import Plan__.
 4. Once the communication plan has been imported, click __Plan Disabled__ to enable the plan.
 5. In the __Edit__ drop-down list, select __Access Permissions__.
@@ -101,7 +100,7 @@ This will set the authentication parameters required to make API requests into L
 2. Click __Edit Endpoints__.
 3. Click on the __LogicMonitor__ endpoint.
 4. Set Base URL. This should be the url of your LogicMonitor environment followed by __/santaba/rest__.
-	Example: __https://<company>.logicmonitor.com/santaba/rest__
+	Example: __https://company.logicmonitor.com/santaba/rest__
 5. Set Authorization Type to __None__.
 	- Authentication is done with in each API calls.
 7. Save Changes.
@@ -150,7 +149,8 @@ This will set the authentication parameters required to make API requests into L
 17. Copy and Past the following JSON raw body.
 	- You can add additional LogicMonitor parameters if you would like. [How to add custom device parameters to LogicMonitor](https://www.logicmonitor.com/support/devices/adding-managing-devices/device-properties)
 
-	__xMattersGroup__ is a LogicMonitor Custom Device Parameter you must add to each device that will be configured to create xMatters alerts. This defines the Recipient Group to target in xMatters.
+	__xMattersGroup__ is a LogicMonitor Custom Device Parameter you must add to each device that will be configured to create xMatters alerts. This defines the Recipient Group to target in xMatters. [Add Custom Device Parameters](#add-custom-device-property)
+	
 
   ```js
 	{
@@ -277,7 +277,7 @@ More info on creating [LogicMonitor Alert Riles](https://www.logicmonitor.com/su
 
 
 <br><br>
-###  Add Custom Device Property "xMattersGroup"
+###  Add Custom Device Property
 
 1. Go to Resources.
 2. Select a Device configured to target the xMatters Integration.
