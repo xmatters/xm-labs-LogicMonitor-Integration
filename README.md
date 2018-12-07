@@ -100,12 +100,13 @@ There are two constants that must be configured in the LogicMonitor xMatters Com
 1. In the target xMatters system go to the __Developer__ tab.
 2. Beside the LogicMonitor Communication Plan click the __Edit__ drop-down list, select __Integration Builder__.
 3. Click __Edit Constants__.
-4. Set __LogicMonitor Access ID__. [Instructions](#get-logicmonitor-api-token)
-5. Set __LogicMonitor Access Key__. [Instructions](#get-logicmonitor-access-id)
+4. Set __LogicMonitor Access ID__. [Instructions](#get-logicmonitor-access-id)
+5. Set __LogicMonitor Access Key__. [Instructions](#get-logicmonitor-api-token)
 
 LogicMonitor Instructions:
-[LogicMonitor API Token](https://www.logicmonitor.com/support/settings/users-and-roles/users/#apitokens)
 [LogicMonitor Access ID](https://www.logicmonitor.com/support/settings/users-and-roles/api-tokens/)
+[LogicMonitor API Token](https://www.logicmonitor.com/support/settings/users-and-roles/users/#apitokens)
+
 
 
 
@@ -225,6 +226,10 @@ After adding a LogicMonitor API Token make sure to copy it as it will only be di
 
 When creating a user, you may want to use the __API Only Access__ toggle. This will create a user that can only access LogicMonitor for the purposes of this integration.
 
+1. Create User for LogicMonitor Integration. Make sure it has appropriate LogicMonitor roles / permissions.
+2. Copy LogicMoitor API Token.
+3. Set xMatters Constant. [LogicMonitor Access Key](#set-xmatters-constants)
+
 
    <kbd>
       <img src="/media/Userspng.png">
@@ -240,6 +245,9 @@ In LogicMonitor go to the __Settings > API Tokens__ Tab.
 Here you will see the Access ID of the API token you just created.
 
 https://www.logicmonitor.com/support/settings/users-and-roles/api-tokens/
+ 
+1. Copy appropriate LogicMoitor Access ID.
+2. Set xMatters Constant. [LogicMonitor Access ID](#set-xmatters-constants)
 
 
    <kbd>
