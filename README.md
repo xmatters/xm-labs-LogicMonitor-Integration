@@ -9,7 +9,9 @@ This integration helps you initiate xMatters notifications for LogicMonitor aler
 # Pre-Requisites
 * LogicMonitor (https://www.logicmonitor.com)
 	* You must have a [collector installed](https://www.logicmonitor.com/support/settings/collectors/about-the-logicmonitor-collector/)
-	* You must have [devices added and configured](https://www.logicmonitor.com/support/getting-started/i-just-signed-up-for-logicmonitor-now-what/4-adding-devices/)
+	* You must have [devices added and configured]
+	(https://www.logicmonitor.com/support/getting-started/i-just-signed-up-for-logicmonitor-now-what/4-adding-devices/)
+	* You must add a Custom Property to the device defining the xMatters Group to taget.
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
 
 
@@ -20,7 +22,7 @@ This integration helps you initiate xMatters notifications for LogicMonitor aler
 
 
 # How it works
-Integrating xMatters with your other tools allows you to automatically transfer key LogicMonitor alert data throughout your systems and drive workflows forward. Notifications and collaboration invites embedded with LogicMonitor insights allow your resolution teams to take immediate action.
+Integrating xMatters with LogicMonitor allows you to automatically transfer key LogicMonitor alert data to xMatters alerts and drive workflows forward.
 
 You can configure any alert rule in LogicMonitor to use the xMatters integration. When such a rule fires, it will trigger an API call into the xMatters Inbound Integration specified by this integration. The integration script then parses out the payload and builds an event and passes that to xMatters.
 
@@ -30,18 +32,20 @@ Because the notes field in LogicMonitor does not allow multiple values, this int
 __xMatters will update the notes field when:__
 - Notifications are created in xMatters.
 - A comment is added to xMatters alert.
-- A response is made to the xMatters alert.
+- A response (Escalate or Acknowledge) is made to the xMatters alert.
 
 When a user responds with _Acknowledged_, an API call will be made to LogicMonitor to update the notes and mark the alert at Acknowledged.
 
 When an alert is resolved in LogicMonitor the corresponding xMatters alert will be terminated.
+
+When a note is added in xMatters it will be appended to the LogicMonitor Alert Notes field.
 
 
 
 # Installation
 
 ## Create an xMatters Integration User
-This integration requires a user who can authenticate REST web service calls when injecting events.
+This integration requires a user who can authenticate REST web service calls when injecting events to xMatters.
 
 This user needs to be able to work with events, but does not need to update administrative settings. While you can use the default Company Supervisor role to authenticate REST web service calls, the best method is to create a user specifically for this integration with the "REST Web Service User" role that includes the permissions and capabilities.
 
@@ -93,15 +97,13 @@ To import the communication plan:
 
 This will set the authentication parameters required to make API requests into LogicMonitor.
 
-1. From inside the __LogicMonitor communicaiton plan__ go to the __Integration Builder__ tab.
+1. From inside the __LogicMonitor Communication Plan__ go to the __Integration Builder__ tab.
 2. Click __Edit Endpoints__.
 3. Click on the __LogicMonitor__ endpoint.
 4. Set Base URL. This should be the url of your LogicMonitor environment followed by __/santaba/rest__.
 	Example: __https://<company>.logicmonitor.com/santaba/rest__
-5. Configure Authentication Method.
-	- You will need to create a LogicMonitor user who has the ability to make API calls into your system.
-	- Learn more here: https://www.logicmonitor.com/support/rest-api-developers-guide/overview/using-logicmonitors-rest-api/
-6. Ensure __Preemptive__ is checked.
+5. Set Authorization Type to __None__.
+	- Authentication is done with in each API calls.
 7. Save Changes.
 
 
@@ -141,14 +143,18 @@ This will set the authentication parameters required to make API requests into L
 9. Click the + add button to create a new integration.
 10. Check "New Alert", "Acknowledge", "Cleared".
 11. Set HTTP Method: HTTP Post.
-12. Set URL to __HTTPS://__ and put the xMatters Inbound Integration Endpoint URL copied from LogicMonitor Alert Inbound Integration. Make sure to remove the https:// from the beginning.
+12. Set URL to __HTTPS://__ and put the xMatters Inbound Integration Endpoint URL copied from LogicMonitor Alert Inbound Integration. Make sure to remove the https:// from the beginning as this was copied from xMatters and should be set in the drop down not the path.
 14. A Username and Password are not required for URL Authentication. If you want to use Basic Authentication please enter your username 
 15. Set __Alert Data__ to __Raw__.
 16. Set Format to JSON.
 17. Copy and Past the following JSON raw body.
+	- You can add additional LogicMonitor parameters if you would like. [How to add custom device parameters to LogicMonitor](https://www.logicmonitor.com/support/devices/adding-managing-devices/device-properties)
+
+	__xMattersGroup__ is a LogicMonitor Custom Device Parameter you must add to each device that will be configured to create xMatters alerts. This defines the Recipient Group to target in xMatters.
 
   ```js
 	{
+	"xMattersGroup":"##xMattersGroup##",
 	"alertid":"##ALERTID##",
 	"requestId":"##EXTERNALTICKETID##",
 	"type":"##ALERTTYPE##",
@@ -198,13 +204,14 @@ This will set the authentication parameters required to make API requests into L
 1. Go to Settings.
 2. Go to Recipient Groups.
 3. Click Add button.
-4. Name the group. Group names should match the group names in xMatters. This will be used to target xMatters groups.
+4. Name the Group.
 5. Add a new recipient.
-	The selected recipient does not matter but you may want to choose one with the purpose of this integration.
+	- The selected recipient does not matter.
 6. Set Contact Method to __xMatters Integration(http)__.
-	- This is the name of the xMatters integration here: [Configure LogicMonitor](#configure-logicmonitor-integration)
+	- This is the name of the xMatters integration you created in the last step: [Configure LogicMonitor](#configure-logicmonitor-integration)
 7. Save Recipient.
 8. Save Group.
+9. Repeat for additional Groups.
 
     <kbd>
       <img src="/media/logicGroup.png">
@@ -223,9 +230,9 @@ More info on creating [LogicMonitor Recipient Groups](https://www.logicmonitor.c
 1. Go to Settings.
 2. Go to Escalation Chains.
 3. Click Add button.
-4. Name the Escalation Chain. You may want to name this after your Group Name.
-5. Optional - Configure Rate Limiting
-6. Add Recipient. The recipient should be a group that you created [Add LogicMonitor Recipient Groups](#add-logicmonitor-recipient-groups)
+4. Name the Escalation Chain.
+5. Optional - Configure Rate Limiting.
+6. Add Recipient. The recipient should be a group that you created in last step: [Add LogicMonitor Recipient Groups](#add-logicmonitor-recipient-groups)
 7. Save Escalation Chain.
 
     <kbd>
@@ -252,7 +259,7 @@ https://www.logicmonitor.com/support/settings/alert-settings/alert-rules/
 
 The most important thing you must do here is to configure the __Escalation Chain__. 
 
-- Select the escalation chain you just created in [Create LogicMonitor Escalation Chain](#create-logicmonitor-escalation-chain)
+- Select the escalation chain you just created in the last step: [Create LogicMonitor Escalation Chain](#create-logicmonitor-escalation-chain)
 
 4. Save Alert Rule.
 
@@ -260,8 +267,41 @@ The most important thing you must do here is to configure the __Escalation Chain
       <img src="/media/Alert-Rule.png">
     </kbd>
 
+5. Add additional Alerts for each Data source / Alert Level that you want to notify with xMatters.
+
 More info on creating [LogicMonitor Alert Riles](https://www.logicmonitor.com/support/settings/alert-settings/alert-rules/)
 
+
+
+
+
+
+<br><br>
+###  Add Custom Device Property "xMattersGroup"
+
+1. Go to Resources.
+2. Select a Device configured to target the xMatters Integration.
+3. Select a Monitor.
+4. Go to Info Tab.
+5. Click the Cog beside Custom Properties.
+6. Add the following Custom Property:
+
+Name: xMattersGroup
+Value: {{Name of xMatters Group to Notify}}
+
+7. Repeat this step for each device you want to notify with xMatters.
+
+
+  <kbd>
+      <img src="/media/DeviceProperties.png">
+    </kbd>
+
+_The value that you set here must match the name of a group in xMatters._
+_If this value does not match the name of a group in xMatters your notification will not go to anyone._
+
+Use this resource to help you configure your alert rule.
+
+More info on creating [Device Properties](https://www.logicmonitor.com/support/devices/adding-managing-devices/device-properties)
 
 
 
