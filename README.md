@@ -10,7 +10,7 @@ This integration helps you initiate xMatters notifications for LogicMonitor aler
 * LogicMonitor (https://www.logicmonitor.com)
 	* You must have a [collector installed](https://www.logicmonitor.com/support/settings/collectors/about-the-logicmonitor-collector/)
 	* You must have [devices added and configured](https://www.logicmonitor.com/support/getting-started/i-just-signed-up-for-logicmonitor-now-what/4-adding-devices/)
-	* You must add a Custom Property for the device defining the xMatters Group to taget.
+	* You must add a Custom Property for the device defining the xMatters Group to target.
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
 
 
