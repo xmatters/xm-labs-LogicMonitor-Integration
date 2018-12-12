@@ -61,9 +61,6 @@ __To create an integration user:__
 
 Make a note of the user name and password that you set; you will need them when configuring other parts of this integration.
 
-The integration user name and password will be needed when configuring the Twilio xm_settings Function: 
-__xm_user__ and __xm_pass__
-
 
 
 
