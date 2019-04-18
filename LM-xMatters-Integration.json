@@ -1,0 +1,42 @@
+{
+    "name": "xMatters Integration",
+    "description": "Send Alerts to xMatters",
+    "type": "http",
+    "enabledStatus": [
+        "active",
+        "ack",
+        "clear"
+    ],
+    "ack": {
+        "headers": [],
+        "password": "********",
+        "method": "post",
+        "payload": "{\n\"xMattersGroup\":\"##xmatters.group##\",\n\"alertid\":\"##ALERTID##\",\n\"requestId\":\"##EXTERNALTICKETID##\",\n\"type\":\"##ALERTTYPE##\",\n\"status\":\"##ALERTSTATUS##\",\n\"message\":\"##MESSAGE##\",\n\"description\": \"Logicmonitor ##Level## Alert on ##HOST####WEBSITE##\",\n\"service_url\": \"##URL##\",\n\"service_description\":\"##SERVICEDESCRIPTION##\",\n\"checkpoint\": \"##CHECKPOINT##\",\n\"service_group\":\"##SERVICEGROUP##\",\n\"logicmonitor_url\":\"##AlertDetailURL##\",\n\"level\":\"##LEVEL##\",\n\"host\":\"##HOST##\",\n\"datasource\":\"##DATASOURCE##\",\n\"eventsource\":\"##EVENTSOURCE##\",\n\"batchjob\":\"##BATCHJOB##\",\n\"group\":\"##HOSTGROUP##\",\n\"datapoint\":\"##DATAPOINT##\",\n\"start\":\"##START##\",\n\"finish\":\"##FINISH##\",\n\"duration\":\"##DURATION##\",\n\"value\":\"##VALUE##\",\n\"threshold\":\"##THRESHOLD##\",\n\"userdata\":\"##USERDATA##\",\n\"cmdline\":\"##CMDLINE##\",\n\"exitCode\":\"##EXITCODE##\",\n\"stdout\":\"##STDOUT##\",\n\"stderr\":\"##STDERR##\"\n}",
+        "payloadFormat": "json",
+        "url": "https://your.xmatters.com/api-integration-url",
+        "username": "xMatters-username"
+    },
+    "clear": {
+        "headers": [],
+        "password": "********",
+        "method": "post",
+        "payload": "{\n\"xMattersGroup\":\"##xmatters.group##\",\n\"alertid\":\"##ALERTID##\",\n\"requestId\":\"##EXTERNALTICKETID##\",\n\"type\":\"##ALERTTYPE##\",\n\"status\":\"##ALERTSTATUS##\",\n\"message\":\"##MESSAGE##\",\n\"description\": \"Logicmonitor ##Level## Alert on ##HOST####WEBSITE##\",\n\"service_url\": \"##URL##\",\n\"service_description\":\"##SERVICEDESCRIPTION##\",\n\"checkpoint\": \"##CHECKPOINT##\",\n\"service_group\":\"##SERVICEGROUP##\",\n\"logicmonitor_url\":\"##AlertDetailURL##\",\n\"level\":\"##LEVEL##\",\n\"host\":\"##HOST##\",\n\"datasource\":\"##DATASOURCE##\",\n\"eventsource\":\"##EVENTSOURCE##\",\n\"batchjob\":\"##BATCHJOB##\",\n\"group\":\"##HOSTGROUP##\",\n\"datapoint\":\"##DATAPOINT##\",\n\"start\":\"##START##\",\n\"finish\":\"##FINISH##\",\n\"duration\":\"##DURATION##\",\n\"value\":\"##VALUE##\",\n\"threshold\":\"##THRESHOLD##\",\n\"userdata\":\"##USERDATA##\",\n\"cmdline\":\"##CMDLINE##\",\n\"exitCode\":\"##EXITCODE##\",\n\"stdout\":\"##STDOUT##\",\n\"stderr\":\"##STDERR##\"\n}",
+        "payloadFormat": "json",
+        "url": "https://your.xmatters.com/api-integration-url",
+        "username": "xMatters-username"
+    },
+
+    "active": {
+        "headers": [],
+        "password": "********",
+        "method": "post",
+        "payload": "{\n\"xMattersGroup\":\"##xmatters.group##\",\n\"alertid\":\"##ALERTID##\",\n\"requestId\":\"##EXTERNALTICKETID##\",\n\"type\":\"##ALERTTYPE##\",\n\"status\":\"##ALERTSTATUS##\",\n\"message\":\"##MESSAGE##\",\n\"description\": \"Logicmonitor ##Level## Alert on ##HOST####WEBSITE##\",\n\"service_url\": \"##URL##\",\n\"service_description\":\"##SERVICEDESCRIPTION##\",\n\"checkpoint\": \"##CHECKPOINT##\",\n\"service_group\":\"##SERVICEGROUP##\",\n\"logicmonitor_url\":\"##AlertDetailURL##\",\n\"level\":\"##LEVEL##\",\n\"host\":\"##HOST##\",\n\"datasource\":\"##DATASOURCE##\",\n\"eventsource\":\"##EVENTSOURCE##\",\n\"batchjob\":\"##BATCHJOB##\",\n\"group\":\"##HOSTGROUP##\",\n\"datapoint\":\"##DATAPOINT##\",\n\"start\":\"##START##\",\n\"finish\":\"##FINISH##\",\n\"duration\":\"##DURATION##\",\n\"value\":\"##VALUE##\",\n\"threshold\":\"##THRESHOLD##\",\n\"userdata\":\"##USERDATA##\",\n\"cmdline\":\"##CMDLINE##\",\n\"exitCode\":\"##EXITCODE##\",\n\"stdout\":\"##STDOUT##\",\n\"stderr\":\"##STDERR##\"\n}",
+        "payloadFormat": "json",
+        "url": "https://your.xmatters.com/api-integration-url",
+        "username": "xMatters-username"
+    },
+    "update": null,
+    "parseMethod": "jsonPath",
+    "parseExpression": "requestId",
+    "uiDetails": "{\"includeIDInHttpResponse\":true,\"groupInfo\":[[\"active\",\"ack\",\"clear\"]],\"multipleMode\":true}"
+}
