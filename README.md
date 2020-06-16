@@ -3,20 +3,22 @@ Automatically notify the appropriate on call resources on their preferred device
 This integration helps you initiate xMatters notifications for LogicMonitor alerts.
 
 <kbd>
-  <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+<a href="https://support.xmatters.com/hc/en-us/community/topics">
+   <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+</a>
 </kbd>
 
 # Pre-Requisites
 * LogicMonitor (https://www.logicmonitor.com)
-	* You must have a [collector installed](https://www.logicmonitor.com/support/settings/collectors/about-the-logicmonitor-collector/)
-	* You must have [devices added and configured](https://www.logicmonitor.com/support/getting-started/i-just-signed-up-for-logicmonitor-now-what/4-adding-devices/)
-	* You must add a Custom Property for the device defining the xMatters Group to target.
+   * You must have a [collector installed](https://www.logicmonitor.com/support/settings/collectors/about-the-logicmonitor-collector/)
+   * You must have [devices added and configured](https://www.logicmonitor.com/support/getting-started/i-just-signed-up-for-logicmonitor-now-what/4-adding-devices/)
+   * You must add a Custom Property for the device defining the xMatters Group to target.
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
 
 
 
 # Files
-* [LogicMonitor Communication Plan](xMattersPlan/LogicMonitor.zip)
+* [LogicMonitor Workflow](LogicMonitor.zip)
 
 
 
@@ -65,16 +67,16 @@ Make a note of the user name and password that you set; you will need them when 
 
 
 <br><br>
-## Import and Configure the xMatters Communication Plan
+## Import and Configure the xMatters Workflow
 
-The next step is to import the communication plan.
+The next step is to import the Workflow.
 
-To import the communication plan:
+To import the Workflow:
 
 1. In the target xMatters system, on the __Developer__ tab, click __Import Plan__.
-2. Click __Browse__, and then locate the downloaded communication plan: [xMatters LogicMonitor Communication Plan](xMattersPlan/LogicMonitor.zip)
+2. Click __Browse__, and then locate the downloaded Workflow: [xMatters LogicMonitor Workflow](LogicMonitor.zip)
 3. Click __Import Plan__.
-4. Once the communication plan has been imported, click __Plan Disabled__ to enable the plan.
+4. Once the Workflow has been imported, click __Plan Disabled__ to enable the plan.
 5. In the __Edit__ drop-down list, select __Access Permissions__.
 6. Add the __LogicMonitor_API_User__ or Make the Plan __Accessible by All__.
 7. __Save Changes__.
@@ -93,9 +95,9 @@ To import the communication plan:
 <br><br>
 ### Set xMatters Constants
 
-There are two constants that must be configured in the LogicMonitor xMatters Communication Plan.
+There are two constants that must be configured in the LogicMonitor xMatters Workflow.
 1. In the target xMatters system go to the __Developer__ tab.
-2. Beside the LogicMonitor Communication Plan click the __Edit__ drop-down list, select __Integration Builder__.
+2. Beside the LogicMonitor Workflow click the __Edit__ drop-down list, select __Integration Builder__.
 3. Click __Edit Constants__.
 4. Set __LogicMonitor Access ID__. [Instructions](#get-logicmonitor-access-id)
 5. Set __LogicMonitor Access Key__. [Instructions](#get-logicmonitor-api-token)
@@ -113,13 +115,13 @@ LogicMonitor Instructions:
 
 This will set the authentication parameters required to make API requests into LogicMonitor.
 
-1. From inside the __LogicMonitor Communication Plan__ go to the __Integration Builder__ tab.
+1. From inside the __LogicMonitor Workflow__ go to the __Integration Builder__ tab.
 2. Click __Edit Endpoints__.
 3. Click on the __LogicMonitor__ endpoint.
 4. Set Base URL. This should be the url of your LogicMonitor environment followed by __/santaba/rest__.
-	Example: __https://company.logicmonitor.com/santaba/rest__
+   Example: __https://company.logicmonitor.com/santaba/rest__
 5. Set Authorization Type to __None__.
-	- Authentication is done with in each API calls.
+   - Authentication is done with in each API calls.
 7. Save Changes.
 
 
@@ -138,7 +140,7 @@ This will set the authentication parameters required to make API requests into L
 
 6. Copy the URL listed under the __Trigger__ section.
 
-	- We will need this url when configure the xMatters Integration inside LogicMonitor
+   - We will need this url when configure the xMatters Integration inside LogicMonitor
 
 
 
@@ -156,7 +158,7 @@ This will set the authentication parameters required to make API requests into L
 8. A Username and Password are not required for URL Authentication. If you want to use Basic Authentication please enter your username and password.
 
 
-	__xmatters.group__ is a LogicMonitor Custom Device Property you must include on each device that will be configured to create xMatters alerts.  The property can be configured directly on the device or inherited from a parent group. This property defines the Recipient Group to target in xMatters. [Add Custom Device Parameters](#add-custom-device-property)
+   __xmatters.group__ is a LogicMonitor Custom Device Property you must include on each device that will be configured to create xMatters alerts.  The property can be configured directly on the device or inherited from a parent group. This property defines the Recipient Group to target in xMatters. [Add Custom Device Parameters](#add-custom-device-property)
 
 
 9. Click __Test Alert Delivery__ and wait for a response.
@@ -219,9 +221,9 @@ https://www.logicmonitor.com/support/settings/users-and-roles/api-tokens/
 3. Click Add button.
 4. Name the Group.
 5. Add a new recipient.
-	- The selected recipient does not matter.
+   - The selected recipient does not matter.
 6. Set Contact Method to __xMatters Integration(http)__.
-	- This is the name of the xMatters integration you created in the last step: [Configure LogicMonitor](#configure-logicmonitor-integration)
+   - This is the name of the xMatters integration you created in the last step: [Configure LogicMonitor](#configure-logicmonitor-integration)
 7. Save Recipient.
 8. Save Group.
 9. Repeat for additional Groups.
